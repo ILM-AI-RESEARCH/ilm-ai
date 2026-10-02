@@ -3,12 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Power Scientific</title>
+
+    <title>Ilmiy AI — Adabiyotlar Analizatori</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        header {
+            background: #123b5d;
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .card h2 {
+            margin-bottom: 10px;
+            color: #123b5d;
+        }
+
+        .card p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 220px;
+            padding: 15px;
+            border: 2px solid #dbe3ea;
+            border-radius: 10px;
+            resize: vertical;
+            font-size: 16px;
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: #2563eb;
+        }
+
+        button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background: #2563eb;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        #result {
+            margin-top: 25px;
+            padding: 20px;
+            background: #eef6ff;
+            border-radius: 10px;
+            display: none;
+            line-height: 1.7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #6b7280;
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1>AI Power Scientific</h1>
-    <p>Sun'iy intellekt va ilm-fan haqida foydali ma'lumotlar.</p>
+<header>
+    <h1>🧬 Ilmiy AI</h1>
+    <p>Ilmiy adabiyotlar analizatori</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>📄 Ilmiy maqolangizni tahlil qiling</h2>
+
+        <p>
+            Ilmiy maqola yoki matnni quyidagi oynaga joylashtiring.
+            Tizim matnni tahlil qilish uchun tayyorlanadi.
+        </p>
+
+        <textarea id="article"
+            placeholder="Bu yerga ilmiy maqola matnini joylashtiring..."></textarea>
+
+        <button onclick="analyzeArticle()">
+            🔍 Tahlil qilish
+        </button>
+
+        <div id="result"></div>
+
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Ilmiy AI — AI Power Scientific
+</footer>
+
+<script>
+function analyzeArticle() {
+
+    const article = document.getElementById("article").value.trim();
+    const result = document.getElementById("result");
+
+    if (article === "") {
+        result.style.display = "block";
+        result.innerHTML = "⚠️ Iltimos, avval ilmiy matn kiriting.";
+        return;
+    }
+
+    const words = article.split(/\s+/).length;
+
+    result.style.display = "block";
+
+    result.innerHTML = 
+        <h3>📊 Dastlabki tahlil</h3>
+        <p><strong>So‘zlar soni:</strong> ${words}</p>
+        <p>
+            ✅ Matn qabul qilindi.
+        </p>
+        <p>
+            🤖 Keyingi bosqichda ushbu tizimga haqiqiy
+            sun’iy intellekt orqali ilmiy tahlil funksiyasi qo‘shiladi.
+        </p>
+    ;
+}
+</script>
 
 </body>
 </html>
